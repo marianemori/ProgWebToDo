@@ -1,0 +1,216 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.main {
+    margin-top: 50px;
+    display: flex;
+}
+
+.cabecalho {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #9576A8;
+    height: 43px;
+    max-height: 43px;
+    padding: 5px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3px;
+}
+
+.navegacao {
+    display: none;
+    flex-direction: column;
+    width: 310px;
+    min-width: 310px;
+    height: calc(100vh - 53px);
+    margin: 0;
+    padding: 0;
+    background-color: #f1f0eb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navegacao>div {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    color: rgb(163, 159, 159);
+    margin-top: 17px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.navegacao>div:hover {
+    background-color: #d8d4d4;
+    border-radius: 4px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgb(163, 159, 159);
+}
+
+.imagem-logo {
+    width: 90px;
+    height: 40px;
+    align-items: center;
+}
+
+.imagem-pesquisar {
+    width: 25px;
+    height: 25;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-right: 8px;
+    float: left;
+}
+
+.imagem-menu {
+    height: 35px;
+    width: 45px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.imagem-tarefa {
+    width: 40px;
+    height: 27px;
+}
+
+.imagem-lista {
+    width: 40px;
+    height: 22px;
+}
+
+.imagem-config {
+    width: 27px;
+    height: 23px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.imagem-editar {
+    float: right;
+    cursor: pointer;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #ccb3db;
+    margin-right: 15px;
+    padding: 2px;
+}
+
+.pesquisar {
+    background-color: #ccb3db;
+    font-size: 14px;
+}
+
+.tarefa>img,
+.tarefa-concluida>img {
+    margin: 20px;
+    cursor: pointer;
+}
+
+.minhas-tarefas,
+.tarefas-concluidas {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+.add-tarefa {
+    font-size: 14px;
+    color: blue;
+    cursor: pointer;
+}
+
+.tarefa,
+.tarefa-concluida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2eaf7;
+    border-radius: 5px;
+}
+
+.tarefa>p,
+.tarefa-concluida>p {
+    font-size: 15px;
+    font-weight: 650;
+    color: #7a7a7a;
+}
+
+.editar-tarefa {
+    display: none;
+    flex-direction: column;
+    width: 300px;
+    min-width: 300px;
+    height: calc(100vh - 53px);
+    margin: 0;
+    padding: 20px;
+    background-color: #f1f0eb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.editar-tarefa>h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.editar-tarefa>p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+.editar-botao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botao-editar {
+    width: 70px;
+    height: 30px;
+}
+
+.titulo-edicao {
+    font-size: 19px;
+    font-weight: 600;
+    text-align: left;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+.lista>input {
+    font-size: 18px;
+    font-weight: 500;
+}

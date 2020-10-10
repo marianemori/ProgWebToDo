@@ -1,0 +1,17 @@
+textarea,
+input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px;
+    border: 0;
+    border-radius: 6px;
+    resize: none;
+    background-color: rgb(252, 252, 252);
+    outline: none;
+}
+
+textarea:disabled,
+input:disabled {
+    background-color: inherit;
+    resize: none;
+    border: 0px;
+}
