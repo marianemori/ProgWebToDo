@@ -1,3 +1,26 @@
+<?php
+
+include_once __DIR__ . '/Database.php';
+
+try {
+    Database::createSchema(); //criar o schema
+    $db = Database::getInstance();
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(key_exists('nome', $_POST) && $_POST['nome'] != '') {
+        $stm = $db->prepare('INSERT INTO Tarefas (nome) VALUES (:nome');
+        $stm->execute(array(':nome' => $_POST['nome']));
+        }
+    }
+    $tarefas = $db->query('SELECT * FROM Tarefas ORDER BY data_tarefa DESC')->fetchAll();
+} catch (Throwable $th) {
+    echo $th;
+    die(1);
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,11 +46,11 @@
     <div class="main">
         <div class="navegacao" id="nav-bar">
             <div> <img class="imagem-tarefa" src="assets/tarefas.png" alt="Tarefa">
-                <a href="index.html"> </p>Minhas tarefas</p>
+                <a href="index.php"> </p>Minhas tarefas</p>
                 </a>
             </div>
             <div> <img class="imagem-lista" src="assets/listas.png" alt="Listas">
-                <a href="lista.html">
+                <a href="lista.php">
                     <p>Minhas listas</p>
                 </a>
             </div>
@@ -41,7 +64,7 @@
                 <div class="tarefa-title">
                     <h1>Minhas Tarefas</h1>
                 </div>
-                <div onclick="adicionarTarefas()" class="add-tarefa">
+                <div onclick="adicionarTarefas(); " class="add-tarefa"> 
                     <p> + Adicionar Tarefa </p>
                 </div>
                 <div id="container-tarefas" class="container-tarefas">
