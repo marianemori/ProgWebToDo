@@ -1,3 +1,10 @@
+<php
+     
+     //TODO ?
+     
+     ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,11 +30,11 @@
     <div class="main">
         <div class="navegacao" id="nav-bar">
             <div> <img class="imagem-tarefa" src="assets/tarefas.png" alt="Tarefa">
-                <a href="index.html"> </p>Minhas tarefas</p>
+                <a href="index.php"> </p>Minhas tarefas</p>
                 </a>
             </div>
             <div> <img class="imagem-lista" src="assets/listas.png" alt="Listas">
-                <a href="lista.html">
+                <a href="lista.php">
                     <p>Minhas listas</p>
                 </a>
             </div>
