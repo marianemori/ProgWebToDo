@@ -1,23 +1,26 @@
 <?php
-
 include_once __DIR__ . '/Database.php';
 
 try {
-    Database::createSchema(); //criar o schema
+    Database::createSchema(); // cria o schema do banco de dados
+
     $db = Database::getInstance();
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(key_exists('nome', $_POST) && $_POST['nome'] != '') {
-        $stm = $db->prepare('INSERT INTO Tarefas (nome) VALUES (:nome');
-        $stm->execute(array(':nome' => $_POST['nome']));
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (key_exists('nome', $_POST) && $_POST['nome'] !== '' && key_exists('descricao', $_POST) && $_POST['descricao'] !== '') {
+            $stm = $db->prepare('INSERT INTO Tarefas (nome, descricao) VALUES (:nome, :descricao)');
+            $stm->execute(array(':nome' => $_POST['nome'], ':descricao' => $_POST['descricao']));
+            echo 'Nome inserido com sucesso! <br/><br/>';
+            echo 'Descricao atualizada com sucesso! <br/><br/>';
         }
+
     }
-    $tarefas = $db->query('SELECT * FROM Tarefas ORDER BY data_tarefa DESC')->fetchAll();
-} catch (Throwable $th) {
+
+    $usuarios = $db->query('SELECT * FROM Tarefas ORDER BY data_tarefa DESC')->fetchAll();
+} catch (\Throwable $th) {
     echo $th;
     die(1);
 }
-
 
 ?>
 
@@ -60,6 +63,33 @@ try {
         </div>
 
         <div class="container">
+
+        <form method="post">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome">
+
+        <br>
+
+        <label for="nome">Descricao: </label>
+        <input type="text" name="descricao" id="descricao">
+        <button type="submit">Enviar</button>
+
+        </form>
+
+        <hr>
+
+            <ul> 
+                <?php foreach ($tarefas as $tarefa) { ?>
+        
+                    <li> 
+                        <?= $tarefa['id'] ?>: <?= $tarefa['nome'] ?> <?= $tarefa['descricao'] ?> (add em <?= $tarefa['data_tarefa'] ?>
+                    </li>
+
+                <?php } ?>    
+
+            </ul>
+
+
             <section class="minhas-tarefas">
                 <div class="tarefa-title">
                     <h1>Minhas Tarefas</h1>
@@ -78,6 +108,7 @@ try {
 
                 </div>
 
+            
             </section>
 
             <section class="tarefas-concluidas">
@@ -110,6 +141,8 @@ try {
             <input class="data-edicao" id="edicao" disabled type="date"></input>
         </div>
     </div>
+
+  
 
 </body>
 <script src="script.js "></script>
