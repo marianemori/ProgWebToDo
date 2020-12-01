@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS tarefas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR NOT NULL,
+    descricao VARCHAR NOT NULL,
+    data_tarefa TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    concluida boolean
+);
+
+
+CREATE TABLE IF NOT EXISTS lista (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR NOT NULL,
+    task_id INTEGER,
+    FOREIGN KEY (task_id) REFERENCES tarefas(id)
+);
